@@ -25,15 +25,23 @@ System Requirements
 
 ----------
 
-Running
+Running from Eclipse
 -------------
 
 > - Checkout/clone project from GIT
-> - Its a simple java project which can be imported into Eclipse simply by doing Import-> Existing Projects into Workspace. Once imported, it can be run from within Eclipse.
-> - Following are the instructions if using command line to compile and run:
-> > - cd into the directory: **/simple-web-crawler/src**
-> > - to compile: **javac -cp ../lib/jsoup-1.8.3.jar com/crawler/Crawler.java -d ../bin**
-> > - to run: **java -cp ../lib/jsoup-1.8.3.jar;../bin com.crawler.Crawler** (Pass arguments as required. Please see below for details.)
+> - Its a simple java project which can be imported into Eclipse simply by doing Import-> Existing Projects into Workspace. 
+> - Once imported, it can be run from within Eclipse.
+
+
+----------
+
+Running from Command Line
+-------------
+
+Following are the instructions if using command line to compile and run:
+> - cd into the directory: **/simple-web-crawler/src**
+> - to compile: **javac -cp ../lib/jsoup-1.8.3.jar com/crawler/Crawler.java -d ../bin**
+> - to run: **java -cp ../lib/jsoup-1.8.3.jar;../bin com.crawler.Crawler** (Pass arguments as required. Please see below for details.)
 
 
 ----------
