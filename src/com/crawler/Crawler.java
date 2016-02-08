@@ -29,9 +29,6 @@ public class Crawler {
 	
 
     public static void main(String[] args) {
-
-    	//args = new String[] {"-CStrue", "-DBtrue", "-MD2"};
-   	
     	Crawler c = new Crawler();
     	c.init(args);
     	c.crawl();
@@ -132,10 +129,58 @@ public class Crawler {
         } catch(Exception e) {
         	System.out.println("Generic Exception [" + e + "] has occuered.....");
         }
-        
-        
-        
     }
+
+    private void printResults() {
+
+    	//removing error URLs from the clean sitemap set
+        for(String errorUrl :errorUrlSet) {
+        	internalUrlSet.remove(errorUrl.substring(0, errorUrl.indexOf("; ERROR_CODE [")));
+        }
+        
+        System.out.println("\n\n\nInternal URLs [" + internalUrlSet.size() + "]");
+        for(String internalUrl :internalUrlSet) {
+        	System.out.println("\t" + internalUrl);
+        }
+        
+        System.out.println("\n\n-------------------------------------------------------------------\n\n");
+        
+        System.out.println("External URLs [" + externalUrlSet.size() + "]");
+        for(String externalUrl :externalUrlSet) {
+        	System.out.println("\t" + externalUrl);
+        }
+        
+        System.out.println("\n\n-------------------------------------------------------------------\n\n");
+        
+        System.out.println("Images [" + imageSet.size() + "]");
+        for(String imgsrc :imageSet) {
+        	System.out.println("\t" + imgsrc);
+        }  
+        
+        System.out.println("\n\n-------------------------------------------------------------------\n\n");
+        
+        System.out.println("CSS [" + cssFileSet.size() + "]");
+        for(String css :cssFileSet) {
+        	System.out.println("\t" + css);
+        }
+        
+        System.out.println("\n\n-------------------------------------------------------------------\n\n");
+        
+        System.out.println("JS [" + jsFileSet.size() + "]");
+        for(String js :jsFileSet) {
+        	System.out.println("\t" + js);
+        }
+        
+        System.out.println("\n\n-------------------------------------------------------------------\n\n");
+        
+        System.out.println("Error URLs [" + errorUrlSet.size() + "]");
+        for(String errorUrl :errorUrlSet) {
+        	System.out.println("\t" + errorUrl);
+        }        
+        
+        System.out.println("\n\n------------------***CRAWLING ENDED***-------------------------------------------------\n\n");
+        
+    }    
     
     private void crawlStaticContent(String currentLink) {
     	try {
@@ -183,59 +228,6 @@ public class Crawler {
     	return currentLink.startsWith(temp_base_url);
     }
     
-    private void printResults() {
-
-    	//removing error URLs from the clean sitemap set
-        for(String errorUrl :errorUrlSet) {
-        	internalUrlSet.remove(errorUrl.substring(0, errorUrl.indexOf("; ERROR_CODE [")));
-        }
-    	
-        
-        
-        System.out.println("\n\n\nInternal URLs [" + internalUrlSet.size() + "]");
-        for(String internalUrl :internalUrlSet) {
-        	System.out.println("\t" + internalUrl);
-        }
-        
-        System.out.println("\n\n-------------------------------------------------------------------\n\n");
-        
-        System.out.println("External URLs [" + externalUrlSet.size() + "]");
-        for(String externalUrl :externalUrlSet) {
-        	System.out.println("\t" + externalUrl);
-        }
-        
-        System.out.println("\n\n-------------------------------------------------------------------\n\n");
-        
-        System.out.println("Images [" + imageSet.size() + "]");
-        for(String imgsrc :imageSet) {
-        	System.out.println("\t" + imgsrc);
-        }  
-        
-        System.out.println("\n\n-------------------------------------------------------------------\n\n");
-        
-        System.out.println("CSS [" + cssFileSet.size() + "]");
-        for(String css :cssFileSet) {
-        	System.out.println("\t" + css);
-        }
-        
-        System.out.println("\n\n-------------------------------------------------------------------\n\n");
-        
-        System.out.println("JS [" + jsFileSet.size() + "]");
-        for(String js :jsFileSet) {
-        	System.out.println("\t" + js);
-        }
-        
-        System.out.println("\n\n-------------------------------------------------------------------\n\n");
-        
-        System.out.println("Error URLs [" + errorUrlSet.size() + "]");
-        for(String errorUrl :errorUrlSet) {
-        	System.out.println("\t" + errorUrl);
-        }        
-        
-        System.out.println("\n\n------------------***CRAWLING ENDED***-------------------------------------------------\n\n");
-        
-    }
-    
     private String tabs(int depth) {
     	StringBuilder tabs = new StringBuilder();
     	for(int i = 1; i < depth; i++) {
@@ -244,7 +236,6 @@ public class Crawler {
     	tabs.append("|-- "); 
     	return tabs.toString();
     }
-    
     
     private boolean isValidLink(String currentLink) {
     	//can add more validation rules over here
@@ -260,5 +251,4 @@ public class Crawler {
     	
     	return false;
     }
-
 }
