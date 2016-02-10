@@ -59,7 +59,7 @@ Sequence of passing these parameters does not matter. Program will determine the
 > - -SL (SLEEP_TIME): Sleep interval, because some sites prohibit too many near simultaneous requests and throw HTTP ERROR [429] (value should be a positive integer; defaults to '0')
 
 
-Example: `'java -cp ../lib/jsoup-1.8.3.jar;../bin com.crawlerCrawler -BUhttp://www.yahoo.com -CStrue -DBtrue -MD3 -ST300`
+Example: `'java -cp ../lib/jsoup-1.8.3.jar;../bin com.crawler.Crawler -BUhttp://www.yahoo.com -CStrue -DBtrue -MD3 -ST300`
 
 ----------
 
