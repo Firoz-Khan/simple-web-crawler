@@ -62,6 +62,8 @@ Sequence of passing these parameters does not matter. Program will determine the
 
 
 Example (windows): `'java -cp ../lib/jsoup-1.8.3.jar;../bin com.crawler.Crawler -BUhttp://www.yahoo.com -CStrue -DBtrue -MD3 -ST300`
+
+
 Example (unix): `'java -cp ../lib/jsoup-1.8.3.jar:../bin com.crawler.Crawler -BUhttp://www.yahoo.com -CStrue -DBtrue -MD3 -ST300`
 
 ----------
