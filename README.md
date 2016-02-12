@@ -41,7 +41,9 @@ Running from Command Line
 Following are the instructions if using command line to compile and run:
 > - cd into the directory: **/simple-web-crawler/src**
 > - to compile: **javac -cp ../lib/jsoup-1.8.3.jar com/crawler/Crawler.java -d ../bin**
-> - to run: **java -cp ../lib/jsoup-1.8.3.jar;../bin com.crawler.Crawler** (Pass arguments as required. Please see below for details.)
+> - to run (windows): **java -cp ../lib/jsoup-1.8.3.jar;../bin com.crawler.Crawler**
+> - to run (unix): **java -cp ../lib/jsoup-1.8.3.jar:../bin com.crawler.Crawler**
+> - Pass arguments as required. Please see below for details.
 
 
 ----------
@@ -59,7 +61,8 @@ Sequence of passing these parameters does not matter. Program will determine the
 > - -SL (SLEEP_TIME): Sleep interval, because some sites prohibit too many near simultaneous requests and throw HTTP ERROR [429] (value should be a positive integer; defaults to '0')
 
 
-Example: `'java -cp ../lib/jsoup-1.8.3.jar;../bin com.crawler.Crawler -BUhttp://www.yahoo.com -CStrue -DBtrue -MD3 -ST300`
+Example (windows): `'java -cp ../lib/jsoup-1.8.3.jar;../bin com.crawler.Crawler -BUhttp://www.yahoo.com -CStrue -DBtrue -MD3 -ST300`
+Example (unix): `'java -cp ../lib/jsoup-1.8.3.jar:../bin com.crawler.Crawler -BUhttp://www.yahoo.com -CStrue -DBtrue -MD3 -ST300`
 
 ----------
 
